@@ -49,3 +49,23 @@ We encourage the use of any libraries for everything except the search functiona
 * Remember to make meaningful commits as you work
 * Somehow share your repository with us
 * __Important:__ If there are credentials required (.env or master.key file), please email these to us directly or we can’t review your project
+
+
+### 4 Hours up - Where I landed
+
+For reference: My mindset going in was to set it up as an API first, and make a
+front-end to call it/render if I had time.
+
+Got a little carried away with tests thinking maybe I'd have time the whole way
+and ended up having to ditch that aspiration a little over halfway into the
+time. Hopefully what got in showed what I was aiming for.
+
+Tasks I ended up finishing (though not all with tests):
+* ~~ A member can be created using their name and a personal website address. ~~
+* ~~ When a member is created, all the heading (h1-h3) values are pulled in from
+  the website to that members profile. ~~
+* ~~ The website url is shortened (e.g. using http://goo.gl) ~~
+* ~~ After the member has been added, I can define their friendships with other
+  existing members. Friendships are bi-directional i.e. If David is a friend of
+Oliver, Oliver is always a friend of David as well. ~~
+
