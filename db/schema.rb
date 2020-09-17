@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_174520) do
+ActiveRecord::Schema.define(version: 2020_09_17_211142) do
+
+  create_table "headings", force: :cascade do |t|
+    t.text "content"
+    t.integer "website_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["website_id"], name: "index_headings_on_website_id"
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "name"
