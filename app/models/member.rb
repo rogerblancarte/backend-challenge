@@ -3,4 +3,7 @@ class Member < ApplicationRecord
 
   has_one  :website, dependent: :destroy
   has_many :headings, through: :website
+
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships, source: :member
 end
