@@ -5,9 +5,9 @@ RSpec.describe 'Websites API', type: :request do
   let!(:member) { create(:member) }
   let!(:website) { create(:website, member_id: member.id) }
 
-  # return a website through a member - GET /members/:member_id/website
-  describe 'GET /members/:member_id/website' do
-    before { get "/members/#{member.id}/website" }
+  # return a website through a member - GET /api/v1/members/:member_id/website
+  describe 'GET /api/v1/members/:member_id/website' do
+    before { get "/api/v1/members/#{member.id}/website" }
 
     context 'when member has a website' do
       it 'returns the website' do
@@ -21,12 +21,12 @@ RSpec.describe 'Websites API', type: :request do
     end
   end
 
-  # create website through a member - POST /members/:member_id/website
-  describe 'POST /members/:member_id/website' do
+  # create website through a member - POST /api/v1/members/:member_id/website
+  describe 'POST /api/v1/members/:member_id/website' do
     let(:valid_data) { { url: 'http://example.com' } }
 
     context 'when data is valid' do
-      before { post "/members/#{member.id}/website", params: valid_data }
+      before { post "/api/v1/members/#{member.id}/website", params: valid_data }
 
       it 'creates a website' do
         expect(JSON.parse(response.body)['url']).to eq('http://example.com')

@@ -5,9 +5,9 @@ RSpec.describe 'Members API', type: :request do
   let!(:members) { create_list(:member, 4) }
   let(:member_id) { members.first.id }
 
-  # return all the members - GET /members
-  describe 'GET /members' do
-    before { get '/members' }
+  # return all the members - GET /api/v1/members
+  describe 'GET /api/v1/members' do
+    before { get '/api/v1/members' }
 
     it 'returns members' do
       expect(JSON.parse(response.body)).not_to be_empty
@@ -15,9 +15,9 @@ RSpec.describe 'Members API', type: :request do
     end
   end
 
-  # return specific member - GET /members/:id
-  describe 'GET /members/:id' do
-    before { get "/members/#{member_id}" }
+  # return specific member - GET /api/v1/members/:id
+  describe 'GET /api/v1/members/:id' do
+    before { get "/api/v1/members/#{member_id}" }
 
     context 'if member exists' do
       it 'returns the member' do
@@ -39,12 +39,12 @@ RSpec.describe 'Members API', type: :request do
     end
   end
 
-  # create member - POST /members
-  describe 'POST /members' do
+  # create member - POST /api/v1/members
+  describe 'POST /api/v1/members' do
     let(:valid_data) { { name: 'Some Person' } }
 
     context 'when data is valid' do
-      before { post '/members', params: valid_data }
+      before { post '/api/v1/members', params: valid_data }
 
       it 'creates a member' do
         expect(JSON.parse(response.body)['name']).to eq('Some Person')
