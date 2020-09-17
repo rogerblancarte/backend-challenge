@@ -58,7 +58,7 @@ front-end to call it/render if I had time.
 
 Got a little carried away with tests thinking maybe I'd have time the whole way
 and ended up having to ditch that aspiration a little over halfway into the
-time. Hopefully what got in showed what I was aiming for.
+time. Hopefully what it showed what I was aiming for.
 
 Tasks I ended up finishing (though not all with tests):
 * A member can be created using their name and a personal website address.
