@@ -11,7 +11,7 @@ FactoryBot.define do
     ].sample }
 
     # set after creation of a member
-    member_id nil
+    association :member
   end
 end
 

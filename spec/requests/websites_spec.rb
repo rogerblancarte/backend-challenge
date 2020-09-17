@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe 'Websites API', type: :request do
   # create the data we'll be using
   let!(:member) { create(:member) }
-  let!(:website) { create(:website, member_id: member.id) }
+  let!(:website) { create(:website, member: member) }
 
-  # return a website through a member - GET /api/v1/members/:member_id/website
-  describe 'GET /api/v1/members/:member_id/website' do
-    before { get "/api/v1/members/#{member.id}/website" }
+  # return a website through a member - GET /api/v1/members/:member_id/websites
+  describe 'GET /api/v1/members/:member_id/websites' do
+    before { get "/api/v1/members/#{member.id}/websites" }
 
     context 'when member has a website' do
       it 'returns the website' do
@@ -21,12 +21,12 @@ RSpec.describe 'Websites API', type: :request do
     end
   end
 
-  # create website through a member - POST /api/v1/members/:member_id/website
-  describe 'POST /api/v1/members/:member_id/website' do
+  # create website through a member - POST /api/v1/members/:member_id/websites
+  describe 'POST /api/v1/members/:member_id/websites' do
     let(:valid_data) { { url: 'http://example.com' } }
 
     context 'when data is valid' do
-      before { post "/api/v1/members/#{member.id}/website", params: valid_data }
+      before { post "/api/v1/members/#{member.id}/websites", params: valid_data }
 
       it 'creates a website' do
         expect(JSON.parse(response.body)['url']).to eq('http://example.com')
